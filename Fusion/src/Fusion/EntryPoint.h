@@ -6,8 +6,11 @@ extern Fusion::Application* Fusion::CreateApplication();
 
 int main(int argc, char** argv)
 {
+	Fusion::Log::Init();
+	FN_CORE_INFO("Launching application");
 	auto app = Fusion::CreateApplication();
 	app->Run();
+	FN_CORE_INFO("Closing application");
 	delete app;
 }
 
