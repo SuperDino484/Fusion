@@ -1,3 +1,4 @@
+#include "fnpch.h"
 #include "Log.h"
 
 namespace Fusion {

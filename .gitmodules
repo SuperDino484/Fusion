@@ -1,3 +1,6 @@
 [submodule "Fusion/vendor/spdlog"]
 	path = Fusion/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "Fusion/vendor/glfw"]
+	path = Fusion/vendor/glfw
+	url = https://github.com/SuperDino484/glfw.git

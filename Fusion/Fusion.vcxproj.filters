@@ -4,6 +4,15 @@
     <Filter Include="Fusion">
       <UniqueIdentifier>{B930AEB3-A5D2-D889-8E8D-ECDD7ACE5FDA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fusion\Events">
+      <UniqueIdentifier>{7DB2E0E2-E972-5C19-B2AD-A5961E2DA1F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Fusion.h" />
@@ -16,9 +25,28 @@
     <ClInclude Include="src\Fusion\EntryPoint.h">
       <Filter>Fusion</Filter>
     </ClInclude>
+    <ClInclude Include="src\Fusion\Events\ApplicationEvent.h">
+      <Filter>Fusion\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fusion\Events\Event.h">
+      <Filter>Fusion\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fusion\Events\KeyEvent.h">
+      <Filter>Fusion\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fusion\Events\MouseEvent.h">
+      <Filter>Fusion\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Fusion\Log.h">
       <Filter>Fusion</Filter>
     </ClInclude>
+    <ClInclude Include="src\Fusion\Window.h">
+      <Filter>Fusion</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fnpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fusion\Application.cpp">
@@ -27,5 +55,9 @@
     <ClCompile Include="src\Fusion\Log.cpp">
       <Filter>Fusion</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fnpch.cpp" />
   </ItemGroup>
 </Project>

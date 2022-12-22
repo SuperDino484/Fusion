@@ -31,12 +31,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         symbols "on"
+        runtime "Debug"
         defines { "FN_DEBUG" }
 
     filter "configurations:Release"
         optimize "on"
+        runtime "Debug"
         defines { "FN_RELEASE" }
 
     filter "configurations:Dist"
         optimize "on"
+        runtime "Release"
         defines { "FN_DIST" }

@@ -4,11 +4,9 @@ class Sandbox : public Fusion::Application
 {
 public:
 	Sandbox()
-	{
+	= default;
 
-	}
-
-	~Sandbox()
+	~Sandbox() override
 	{
 
 	}

@@ -5,6 +5,9 @@ project "Fusion"
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "fnpch.h"
+    pchsource "src/fnpch.cpp"
+
     files {
         "src/**.h",
         "src/**.cpp"
@@ -12,7 +15,13 @@ project "Fusion"
 
     includedirs {
         "%{IncludeDirs.Fusion}",
-        "%{IncludeDirs.spdlog}"
+        "%{IncludeDirs.spdlog}",
+        "%{IncludeDirs.glfw}"
+    }
+
+    links {
+        "glfw",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -21,7 +30,8 @@ project "Fusion"
         systemversion "latest"
 
         defines {
-            "FN_PLATFORM_WINDOWS"
+            "FN_PLATFORM_WINDOWS",
+            "FN_ENABLE_ASSERTS"
         }
 
     filter "configurations:Debug"
