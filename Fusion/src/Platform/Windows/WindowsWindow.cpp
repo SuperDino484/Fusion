@@ -3,6 +3,7 @@
 
 #include "Fusion/Log.h"
 #include "Fusion/Core.h"
+#include "Fusion/Events/ApplicationEvent.h"
 
 namespace Fusion
 {
@@ -58,6 +59,20 @@ namespace Fusion
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_WindowData);
 		SetVsync(true);
+
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* Window, int Width, int Height)
+		{
+			const WindowsWindowData& UserData = *static_cast<WindowsWindowData*>(glfwGetWindowUserPointer(Window));
+			WindowResizeEvent Event(Width, Height);
+			UserData.EventCallback(Event);
+		});
+
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* Window)
+		{
+			const WindowsWindowData& UserData = *static_cast<WindowsWindowData*>(glfwGetWindowUserPointer(Window));
+			WindowCloseEvent Event;
+			UserData.EventCallback(Event);
+		});
 	}
 
 	void WindowsWindow::Shutdown()

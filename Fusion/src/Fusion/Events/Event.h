@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
-#include <functional>
+#include "fnpch.h"
+#include "Fusion/Log.h"
 
 namespace Fusion {
 
@@ -17,13 +17,11 @@ namespace Fusion {
 	{
 		friend class EventDispatcher;
 	public:
-		virtual ~Event() = default;
-
 		[[nodiscard]] virtual EventType GetEventType() const = 0;
-#ifdef FN_DEBUG
 		[[nodiscard]] virtual const char* GetName() const = 0;
 		[[nodiscard]] virtual std::string ToString() const { return GetName(); }
-#endif
+
+		bool IsHandled() const { return m_Handled; }
 
 	protected:
 		bool m_Handled = false;
@@ -33,17 +31,26 @@ namespace Fusion {
 	{
 		template<typename T>
 		using EventFn = std::function<bool(T&)>;
+
+		template<typename T>
+		using EventType = T;
 	public:
-		template<EventType Type, typename ParamType>
-		static bool CaptureAndDispatch(Event& Captured, EventFn<ParamType> Callbackfunction)
+		explicit EventDispatcher(Event& Event):
+			m_Event(Event) {}
+
+		template<typename T>
+		bool Dispatch(EventFn<T> Callbackfunction)
 		{
-			if (Captured.GetEventType() == Type)
+			if (T::StaticEventType() == m_Event.GetEventType())
 			{
-				Captured.m_Handled = Callbackfunction(Captured);
+				m_Event.m_Handled = Callbackfunction(*static_cast<T*>(&m_Event));
 				return true;
 			}
 			return false;
 		}
+
+	private:
+		Event& m_Event;
 	};
 
 }

@@ -144,6 +144,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Fusion\LayerHandler.h" />
+    <ClInclude Include="src\Fusion\Layer.h" />
     <ClInclude Include="src\Fusion.h" />
     <ClInclude Include="src\Fusion\Application.h" />
     <ClInclude Include="src\Fusion\Core.h" />
@@ -158,6 +160,8 @@
     <ClInclude Include="src\fnpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Fusion\LayerHandler.cpp" />
+    <ClCompile Include="src\Fusion\Layer.cpp" />
     <ClCompile Include="src\Fusion\Application.cpp" />
     <ClCompile Include="src\Fusion\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />

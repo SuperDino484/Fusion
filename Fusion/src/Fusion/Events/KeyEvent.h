@@ -11,6 +11,7 @@ namespace Fusion {
         KeyPressedEvent(const int Keycode, const int RepeatCount) :
             m_KeyCode(Keycode), m_RepeatCount(RepeatCount) {}
 
+        static EventType StaticEventType() { return EventType::KeyPressed; }
         virtual EventType GetEventType() const override { return EventType::KeyPressed; }
         virtual const char* GetName() const override { return "KeyPressedEvent"; }
         virtual std::string ToString() const override
@@ -20,8 +21,8 @@ namespace Fusion {
             return ss.str();
         }
 
-    	[[nodiscard]] inline int GetKeyCode() const { return m_KeyCode; }
-        [[nodiscard]] inline int GetRepeatCount() const { return m_RepeatCount; }
+    	int GetKeyCode() const { return m_KeyCode; }
+        int GetRepeatCount() const { return m_RepeatCount; }
 
     private:
         int m_KeyCode;
@@ -34,6 +35,7 @@ namespace Fusion {
 	    explicit KeyReleasedEvent(const int Keycode) :
             m_KeyCode(Keycode) {}
 
+        static EventType StaticEventType() { return EventType::KeyReleased; }
         virtual EventType GetEventType() const override { return EventType::KeyReleased; }
         virtual const char* GetName() const override { return "KeyReleasedEvent"; }
         virtual std::string ToString() const override
@@ -43,7 +45,7 @@ namespace Fusion {
             return ss.str();
         }
 
-        [[nodiscard]] inline int GetKeyCode() const { return m_KeyCode; }
+        int GetKeyCode() const { return m_KeyCode; }
 
     private:
         int m_KeyCode;

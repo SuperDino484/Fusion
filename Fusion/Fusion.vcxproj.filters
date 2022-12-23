@@ -47,6 +47,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\fnpch.h" />
+    <ClInclude Include="src\Fusion\Layer.h" />
+    <ClInclude Include="src\Fusion\LayerHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Fusion\Application.cpp">
@@ -59,5 +61,7 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\fnpch.cpp" />
+    <ClCompile Include="src\Fusion\Layer.cpp" />
+    <ClCompile Include="src\Fusion\LayerHandler.cpp" />
   </ItemGroup>
 </Project>
